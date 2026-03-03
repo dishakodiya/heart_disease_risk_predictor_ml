@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Heart Disease Prediction</title>
+</head>
+<body>
+
+<h2>Enter Patient Details</h2>
+
+<form method="POST">
+
+
+
+    Age: <input type="number" name="age" required><br><br>
+
+    Gender (1=Male, 2=Female):
+    <input type="number" name="gender" required><br><br>
+
+    Height: <input type="number" name="height" step="any" required><br><br>
+
+    Weight: <input type="number" name="weight" step="any" required><br><br>
+
+    Systolic BP (ap_hi): <input type="number" name="ap_hi" required><br><br>
+
+    Diastolic BP (ap_lo): <input type="number" name="ap_lo" required><br><br>
+
+    Cholesterol (1=normal,2=above,3=well above):
+    <input type="number" name="cholesterol" required><br><br>
+
+    Glucose (1,2,3):
+    <input type="number" name="gluc" required><br><br>
+
+    Smoke (0/1):
+    <input type="number" name="smoke" required><br><br>
+
+    Alcohol (0/1):
+    <input type="number" name="alco" required><br><br>
+
+    Active (0/1):
+    <input type="number" name="active" required><br><br>
+
+    <button type="submit">Predict</button>
+
+</form>
+
+<h2>{{ result }}</h2>
+
+</body>
+</html>
