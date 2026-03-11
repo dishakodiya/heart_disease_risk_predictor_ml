@@ -1,0 +1,314 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CardioPredict AI | Login</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 flex items-center justify-center p-4">
+
+  <div class="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md">
+
+    <div class="text-center mb-8">
+      <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-red-500 to-pink-600 rounded-full mb-4 shadow-lg">
+        <i data-lucide="heart" class="w-10 h-10 text-white"></i>
+      </div>
+      <h1 class="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+        CardioPredict AI
+      </h1>
+      <p class="text-gray-600 mt-2">Advanced Heart Health Analysis</p>
+    </div>
+
+    <div class="space-y-4">
+      <div>
+        <label class="block text-sm font-semibold text-gray-700 mb-2">Username</label>
+        <input id="username" type="text"
+          class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:outline-none transition"
+          placeholder="Enter username">
+      </div>
+
+      <div>
+        <label class="block text-sm font-semibold text-gray-700 mb-2">Password</label>
+        <input id="password" type="password"
+          class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:outline-none transition"
+          placeholder="Enter password">
+      </div>
+
+      <button onclick="login()"
+        class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-lg font-semibold hover:shadow-lg transition transform hover:scale-105">
+        Login
+      </button>
+    </div>
+
+    <div class="mt-6 text-center">
+      <button onclick="toggleMode()" id="toggleBtn"
+        class="text-blue-600 font-semibold hover:underline">
+        Don't have an account? Sign Up
+      </button>
+    </div>
+
+    <div class="mt-6 p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg border border-blue-200">
+      <p class="text-xs text-center text-blue-800">
+        <i data-lucide="lock" class="w-3 h-3 inline mr-1"></i>
+        Demo: <strong>demo</strong> / <strong>demo123</strong>
+      </p>
+    </div>
+
+  </div>
+
+<script>
+  lucide.createIcons();
+
+  let isSignup = false;
+
+  function toggleMode() {
+    isSignup = !isSignup;
+    document.querySelector("button[onclick='login()']").innerText =
+      isSignup ? "Sign Up" : "Login";
+
+    document.getElementById("toggleBtn").innerText =
+      isSignup ? "Already have an account? Login" : "Don't have an account? Sign Up";
+  }
+
+  function login() {
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    if (true) {
+      localStorage.setItem("user", username);
+      window.location.href = "home.html";
+    } 
+    else if (isSignup && username.length > 0) {
+      localStorage.setItem("user", username);
+      window.location.href = "home.html";
+    } 
+    else {
+      alert("Invalid credentials. Use demo / demo123");
+    }
+  }
+</script>
+
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CardioPredict AI | Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root { --navy:#080f1e; --teal:#00d4b4; --red:#ff4466; --text:#c8d8ee; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body {
+      font-family:'DM Sans',sans-serif;
+      background:var(--navy);
+      color:var(--text);
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    body::before {
+      content:'';
+      position:fixed; inset:0;
+      background-image:
+        linear-gradient(rgba(0,212,180,0.04) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(0,212,180,0.04) 1px,transparent 1px);
+      background-size:60px 60px;
+      pointer-events:none;
+    }
+    .glow {
+      position:fixed;
+      width:500px; height:500px;
+      background:radial-gradient(circle, rgba(0,212,180,0.06) 0%, transparent 70%);
+      border-radius:50%;
+      top:50%; left:50%;
+      transform:translate(-50%,-50%);
+      pointer-events:none;
+    }
+    .card {
+      position:relative; z-index:1;
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:24px;
+      padding:48px 44px;
+      width:100%;
+      max-width:440px;
+      backdrop-filter:blur(12px);
+    }
+    .brand {
+      display:flex; align-items:center; gap:12px;
+      margin-bottom:40px;
+      justify-content:center;
+    }
+    .brand-icon {
+      width:44px; height:44px;
+      background:linear-gradient(135deg,var(--red),#ff6688);
+      border-radius:12px;
+      display:flex; align-items:center; justify-content:center;
+      box-shadow:0 0 24px rgba(255,68,102,0.35);
+    }
+    .brand-text {
+      font-family:'Syne',sans-serif;
+      font-size:1.35rem; font-weight:800;
+      color:#fff;
+      letter-spacing:-0.02em;
+    }
+    .brand-text span { color:var(--teal); }
+    .card-title {
+      font-family:'Syne',sans-serif;
+      font-size:1.7rem; font-weight:800;
+      color:#fff; margin-bottom:8px;
+      letter-spacing:-0.02em;
+    }
+    .card-sub { color:#5a7a9a; font-size:0.9rem; margin-bottom:36px; }
+    .tabs {
+      display:flex;
+      background:rgba(255,255,255,0.04);
+      border-radius:10px;
+      padding:4px;
+      margin-bottom:32px;
+    }
+    .tab {
+      flex:1; padding:10px;
+      text-align:center;
+      font-family:'Syne',sans-serif;
+      font-weight:700;
+      font-size:0.875rem;
+      border-radius:8px;
+      cursor:pointer;
+      color:#5a7a9a;
+      transition:all 0.2s;
+      border:none;
+      background:transparent;
+    }
+    .tab.active { background:rgba(0,212,180,0.12); color:var(--teal); }
+    .field-label {
+      display:block;
+      font-size:0.8rem;
+      font-weight:600;
+      color:#8fa8c8;
+      letter-spacing:0.05em;
+      text-transform:uppercase;
+      margin-bottom:8px;
+    }
+    .field-wrap { position:relative; margin-bottom:20px; }
+    .field-icon {
+      position:absolute;
+      left:14px; top:50%;
+      transform:translateY(-50%);
+      color:#3a5a7a;
+      width:18px; height:18px;
+    }
+    .input {
+      width:100%;
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:10px;
+      padding:14px 14px 14px 44px;
+      color:#fff;
+      font-size:0.95rem;
+      font-family:'DM Sans',sans-serif;
+      transition:all 0.2s;
+      outline:none;
+    }
+    .input:focus { border-color:rgba(0,212,180,0.4); background:rgba(0,212,180,0.04); box-shadow:0 0 0 3px rgba(0,212,180,0.08); }
+    .input::placeholder { color:#3a5a7a; }
+    .btn-login {
+      width:100%;
+      background:var(--teal);
+      color:var(--navy);
+      font-family:'Syne',sans-serif;
+      font-weight:700;
+      font-size:1rem;
+      padding:15px;
+      border-radius:10px;
+      border:none;
+      cursor:pointer;
+      transition:all 0.25s;
+      display:flex; align-items:center; justify-content:center; gap:8px;
+      margin-top:8px;
+    }
+    .btn-login:hover { background:#00f5d0; box-shadow:0 8px 24px rgba(0,212,180,0.3); transform:translateY(-1px); }
+    .demo-chip {
+      margin-top:24px;
+      background:rgba(0,212,180,0.06);
+      border:1px solid rgba(0,212,180,0.15);
+      border-radius:10px;
+      padding:14px 18px;
+      font-size:0.8rem;
+      color:#5a7a9a;
+      display:flex; align-items:center; gap:8px;
+    }
+    .demo-chip strong { color:var(--teal); }
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(20px); }
+      to { opacity:1; transform:translateY(0); }
+    }
+    .card { animation:fadeUp 0.5s ease; }
+  </style>
+</head>
+<body>
+<div class="glow"></div>
+
+<div class="card">
+  <div class="brand">
+    <div class="brand-icon">
+      <i data-lucide="heart" style="width:20px;height:20px;color:#fff;"></i>
+    </div>
+    <span class="brand-text">Cardio<span>Predict</span></span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" id="loginTab" onclick="setMode('login')">Sign In</button>
+    <button class="tab" id="signupTab" onclick="setMode('signup')">Sign Up</button>
+  </div>
+
+  <div class="field-wrap">
+    <i data-lucide="user" class="field-icon"></i>
+    <input id="username" type="text" class="input" placeholder="Enter username">
+  </div>
+  <div class="field-wrap">
+    <i data-lucide="lock" class="field-icon"></i>
+    <input id="password" type="password" class="input" placeholder="Enter password">
+  </div>
+
+  <button class="btn-login" onclick="login()">
+    <span id="btn-text">Sign In</span>
+    <i data-lucide="arrow-right" style="width:18px;height:18px;"></i>
+  </button>
+
+  <div class="demo-chip">
+    <i data-lucide="info" style="width:14px;height:14px;color:#00d4b4;"></i>
+    Demo credentials: <strong>demo</strong> / <strong>demo123</strong>
+  </div>
+</div>
+
+<script>
+  lucide.createIcons();
+  let isSignup = false;
+
+  function setMode(mode) {
+    isSignup = mode === 'signup';
+    document.getElementById('loginTab').classList.toggle('active', !isSignup);
+    document.getElementById('signupTab').classList.toggle('active', isSignup);
+    document.getElementById('btn-text').textContent = isSignup ? 'Create Account' : 'Sign In';
+  }
+
+  function login() {
+    const username = document.getElementById('username').value;
+    if (!username) { alert('Please enter a username'); return; }
+    localStorage.setItem('user', username);
+    window.location.href = 'home.html';
+  }
+</script>
+</body>
+</html>

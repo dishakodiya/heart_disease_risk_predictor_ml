@@ -1,0 +1,295 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CardioPredict AI | Home</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
+
+<nav class="bg-white shadow-lg border-b-2 border-gray-100">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex justify-between items-center h-16">
+
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 bg-gradient-to-br from-red-500 to-pink-600 rounded-full flex items-center justify-center">
+          <i data-lucide="heart" class="w-6 h-6 text-white"></i>
+        </div>
+        <span class="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          CardioPredict AI
+        </span>
+      </div>
+
+      <div class="flex items-center space-x-2">
+        <a href="home.html" class="nav-btn bg-gradient-to-r from-blue-500 to-purple-500 text-white">
+          <i data-lucide="home" class="w-4 h-4"></i> Home
+        </a>
+        <a href="predict.html" class="nav-btn">
+          <i data-lucide="activity" class="w-4 h-4"></i> Predict
+        </a>
+        <a href="about.html" class="nav-btn">
+          <i data-lucide="bar-chart-3" class="w-4 h-4"></i> About
+        </a>
+        <a href="dashboard.html" class="nav-btn">
+          <i data-lucide="trending-up" class="w-4 h-4"></i> Dashboard
+        </a>
+        <button onclick="logout()" class="nav-btn text-red-600 hover:bg-red-50">
+          <i data-lucide="log-out" class="w-4 h-4"></i> Logout
+        </button>
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+<div class="max-w-7xl mx-auto px-4 py-12">
+
+  <div class="text-center mb-12">
+    <h1 class="text-5xl font-bold text-gray-800 mb-4">
+      Welcome back,
+      <span id="username" class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"></span>!
+    </h1>
+    <p class="text-xl text-gray-600">
+      AI-Powered Cardiovascular Risk Assessment  
+      <span class="block text-sm text-gray-500 mt-2">
+        (Optimized for higher recall • Threshold = 0.4)
+      </span>
+    </p>
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-6 mb-12">
+
+    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
+      <div class="w-14 h-14 bg-gradient-to-br from-green-400 to-emerald-600 rounded-full flex items-center justify-center mb-4">
+        <i data-lucide="activity" class="w-7 h-7 text-white"></i>
+      </div>
+      <h3 class="text-xl font-bold mb-2">Random Forest Model</h3>
+      <p class="text-gray-600 mb-3">Optimized with GridSearch</p>
+      <div class="text-sm font-semibold text-blue-600">
+        Accuracy: 72% (Threshold = 0.4)
+      </div>
+    </div>
+
+    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
+      <div class="w-14 h-14 bg-gradient-to-br from-blue-400 to-indigo-600 rounded-full flex items-center justify-center mb-4">
+        <i data-lucide="bar-chart-3" class="w-7 h-7 text-white"></i>
+      </div>
+      <h3 class="text-xl font-bold mb-2">ROC-AUC Score</h3>
+      <p class="text-gray-600 mb-3">Strong discriminative ability</p>
+      <div class="text-sm font-semibold text-blue-600">Score: 0.798</div>
+    </div>
+
+    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
+      <div class="w-14 h-14 bg-gradient-to-br from-purple-400 to-pink-600 rounded-full flex items-center justify-center mb-4">
+        <i data-lucide="heart" class="w-7 h-7 text-white"></i>
+      </div>
+      <h3 class="text-xl font-bold mb-2">Disease Recall</h3>
+      <p class="text-gray-600 mb-3">Minimizing false negatives</p>
+      <div class="text-sm font-semibold text-blue-600">
+        Recall: 78% (Class 1)
+      </div>
+    </div>
+
+  </div>
+
+  <div class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-2xl shadow-2xl p-10 text-white text-center mb-12">
+    <h2 class="text-4xl font-bold mb-4">Start Your Assessment</h2>
+    <p class="text-lg mb-6">
+      Prediction threshold optimized for safer cardiovascular screening
+    </p>
+    <a href="predict.html"
+      class="bg-white text-purple-600 px-8 py-4 rounded-lg font-bold text-lg hover:shadow-xl transition">
+      Begin Prediction
+    </a>
+  </div>
+  
+  <div class="bg-white rounded-xl shadow-lg p-8">
+    <h2 class="text-2xl font-bold mb-6">Model Specifications</h2>
+
+    <div class="grid md:grid-cols-2 gap-6">
+
+      <div class="border-l-4 border-blue-500 pl-4">
+        <p class="text-sm text-gray-600">Algorithm</p>
+        <p class="font-semibold">Random Forest Classifier</p>
+      </div>
+
+      <div class="border-l-4 border-blue-500 pl-4">
+        <p class="text-sm text-gray-600">ROC-AUC</p>
+        <p class="font-semibold">0.798</p>
+        <p class="text-xs text-gray-500">CV: 0.801</p>
+
+      </div>
+
+      <div class="border-l-4 border-blue-500 pl-4">
+        <p class="text-sm text-gray-600">Accuracy</p>
+        <p class="font-semibold">73% (Threshold = 0.4)</p>
+      </div>
+
+      <div class="border-l-4 border-blue-500 pl-4">
+        <p class="text-sm text-gray-600">Precision (Disease)</p>
+        <p class="font-semibold">77%</p>
+      </div>
+
+      <div class="border-l-4 border-green-500 pl-4">
+        <p class="text-sm text-gray-600">Recall (Disease)</p>
+        <p class="font-semibold">67%</p>
+      </div>
+
+      <div class="border-l-4 border-gray-500 pl-4">
+        <p class="text-sm text-gray-600">Class Weight</p>
+        <p class="font-semibold">None</p>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<script>
+  lucide.createIcons();
+
+  const user = localStorage.getItem("user");
+  if (!user) window.location.href = "login.html";
+  document.getElementById("username").innerText = user;
+
+  function logout() {
+    localStorage.clear();
+    window.location.href = "login.html";
+  }
+</script>
+
+<style>
+  .nav-btn {
+    padding: 8px 14px;
+    border-radius: 8px;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    font-weight: 500;
+  }
+  .nav-btn:hover { background: #f3f4f6; }
+</style>
+
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CardioPredict AI | About</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{--navy:#080f1e;--teal:#00d4b4;--red:#ff4466;--text:#c8d8ee;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--text);min-height:100vh;}
+    body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,212,180,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,180,0.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0;}
+    h1,h2,h3,h4,nav{font-family:'Syne',sans-serif;}
+    nav{position:sticky;top:0;z-index:100;background:rgba(8,15,30,0.9);backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,212,180,0.1);padding:0 40px;height:68px;display:flex;align-items:center;justify-content:space-between;}
+    .logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+    .logo-icon{width:38px;height:38px;background:linear-gradient(135deg,var(--red),#ff6688);border-radius:10px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 18px rgba(255,68,102,0.35);}
+    .logo-text{font-size:1.15rem;font-weight:800;color:#fff;letter-spacing:-0.02em;}
+    .logo-text span{color:var(--teal);}
+    .nav-links{display:flex;gap:4px;align-items:center;}
+    .nav-link{font-size:0.85rem;font-weight:600;padding:8px 14px;border-radius:8px;color:var(--text);text-decoration:none;transition:all 0.2s;display:flex;align-items:center;gap:6px;}
+    .nav-link:hover{background:rgba(0,212,180,0.08);color:var(--teal);}
+    .nav-link.active{background:rgba(0,212,180,0.1);color:var(--teal);}
+    .nav-link svg{width:15px;height:15px;}
+    .page{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:56px 24px;}
+
+    /* HERO BLOCK */
+    .page-hero{margin-bottom:56px;}
+    .page-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(0,212,180,0.08);border:1px solid rgba(0,212,180,0.18);color:var(--teal);font-size:0.72rem;font-weight:700;padding:5px 12px;border-radius:100px;letter-spacing:0.07em;text-transform:uppercase;margin-bottom:20px;}
+    .page-hero h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;color:#fff;letter-spacing:-0.03em;line-height:1.15;margin-bottom:16px;}
+    .page-hero h1 span{color:var(--teal);}
+    .page-hero p{color:#8fa8c8;font-size:1.05rem;line-height:1.75;max-width:640px;}
+
+    /* OVERVIEW CARD */
+    .overview{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:20px;padding:36px 40px;margin-bottom:28px;position:relative;overflow:hidden;}
+    .overview::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--teal),transparent);}
+    .overview p{color:#8fa8c8;line-height:1.8;font-size:1rem;}
+    .overview strong{color:#fff;}
+
+    /* FEAT GRID */
+    .feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-bottom:28px;}
+    .feat{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:18px;padding:28px 24px;transition:all 0.3s;}
+    .feat:hover{border-color:rgba(0,212,180,0.2);transform:translateY(-3px);}
+    .feat-ic{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;}
+    .ic-t{background:rgba(0,212,180,0.1);color:var(--teal);}
+    .ic-r{background:rgba(255,68,102,0.1);color:var(--red);}
+    .ic-b{background:rgba(64,128,255,0.1);color:#4080ff;}
+    .feat h3{font-size:1rem;font-weight:700;color:#fff;margin-bottom:10px;}
+    .feat p{color:#8fa8c8;font-size:0.875rem;line-height:1.7;}
+
+    /* DISCLAIMER */
+    .disclaimer{background:rgba(255,180,0,0.05);border:1px solid rgba(255,180,0,0.18);border-radius:18px;padding:28px 32px;display:flex;gap:18px;align-items:flex-start;}
+    .disc-icon{width:40px;height:40px;background:rgba(255,180,0,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#ffb400;}
+    .disclaimer h4{font-size:0.95rem;font-weight:700;color:#ffb400;margin-bottom:8px;}
+    .disclaimer p{color:#8fa8c8;font-size:0.875rem;line-height:1.7;}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+    .page>*{animation:fadeUp 0.5s ease both;}
+    .feat-grid{animation-delay:0.15s;}
+    .disclaimer{animation-delay:0.25s;}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="home.html" class="logo">
+    <div class="logo-icon"><i data-lucide="heart" style="width:19px;height:19px;color:#fff;"></i></div>
+    <span class="logo-text">Cardio<span>Predict</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="home.html" class="nav-link"><i data-lucide="home"></i>Home</a>
+    <a href="predict.html" class="nav-link"><i data-lucide="activity"></i>Predict</a>
+    <a href="about.html" class="nav-link active"><i data-lucide="info"></i>About</a>
+    <a href="dashboard.html" class="nav-link"><i data-lucide="trending-up"></i>Dashboard</a>
+  </div>
+</nav>
+
+<div class="page">
+  <div class="page-hero">
+    <div class="page-tag"><i data-lucide="info" style="width:11px;height:11px;"></i> About the Project</div>
+    <h1>About <span>CardioPredict</span> AI</h1>
+    <p>An end-to-end machine learning pipeline for cardiovascular disease risk prediction — from raw clinical data to production-ready inference.</p>
+  </div>
+
+  <div class="overview">
+    <p><strong>CardioPredict AI</strong> is a machine learning–powered web application designed to estimate the risk of cardiovascular disease using patient health metrics such as age, blood pressure, BMI, cholesterol, glucose levels, and lifestyle factors. The system was built using proper preprocessing, outlier removal, feature engineering, and cross-validated model selection.</p>
+  </div>
+
+  <div class="feat-grid">
+    <div class="feat">
+      <div class="feat-ic ic-t"><i data-lucide="brain" style="width:22px;height:22px;"></i></div>
+      <h3>Machine Learning Core</h3>
+      <p>Random Forest and Gradient Boosting models trained on cleaned cardiovascular datasets with GridSearch hyperparameter tuning.</p>
+    </div>
+    <div class="feat">
+      <div class="feat-ic ic-r"><i data-lucide="heart-pulse" style="width:22px;height:22px;"></i></div>
+      <h3>Clinical Health Metrics</h3>
+      <p>Analyzes systolic/diastolic BP, BMI, cholesterol levels, glucose, smoking status, alcohol, and physical activity.</p>
+    </div>
+    <div class="feat">
+      <div class="feat-ic ic-b"><i data-lucide="shield-check" style="width:22px;height:22px;"></i></div>
+      <h3>Preventive Screening Focus</h3>
+      <p>Threshold adjusted to 0.4 to improve recall for high-risk patients — prioritizing early detection over raw accuracy.</p>
+    </div>
+  </div>
+
+  <div class="disclaimer">
+    <div class="disc-icon"><i data-lucide="alert-triangle" style="width:20px;height:20px;"></i></div>
+    <div>
+      <h4>Medical Disclaimer</h4>
+      <p>This application is intended for educational and research purposes only. Predictions are generated by a machine learning model and should not be considered a substitute for professional medical advice, diagnosis, or treatment. Always consult a qualified healthcare provider.</p>
+    </div>
+  </div>
+</div>
+
+<script>lucide.createIcons();</script>
+</body>
+</html>
